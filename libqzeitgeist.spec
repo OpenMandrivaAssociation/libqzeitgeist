@@ -47,9 +47,3 @@ rm -rf %{buildroot}
 
 %clean
 rm -rf %{buildroot}
-
-
-%changelog
-* Tue Mar 08 2011 Zé <ze@mandriva.org>  0.1-1mdv2011.0
-- first package
-
