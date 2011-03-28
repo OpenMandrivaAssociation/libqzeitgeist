@@ -6,7 +6,7 @@ Version:	0.1
 Release:	%mkrel 1
 URL:		http://gitorious.org/kde-zeitgeist/libqzeitgeist
 License: 	GPL
-# Zé: git clone http://gitorious.org/kde-zeitgeist/libqzeitgeist
+#  git clone http://gitorious.org/kde-zeitgeist/libqzeitgeist
 Source0:	http://gitorious.org/kde-zeitgeist/libqzeitgeist/%{name}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	cmake
@@ -14,7 +14,6 @@ BuildRequires:	qt4-devel
 
 %description
 Qt Zeitgeist Library.
-
 
 #-------------------------------------------------------------------------------
 %package -n %name-devel
@@ -31,8 +30,8 @@ Development files for Qt Zeitgeist.
 %_usr/lib/libqzeitgeist.so
 %_usr/lib/pkgconfig/QtZeitgeist.pc
 
-
 #-------------------------------------------------------------------------------
+
 %prep
 %setup -qn %name
 
@@ -44,6 +43,3 @@ Development files for Qt Zeitgeist.
 rm -rf %{buildroot}
 %makeinstall_std -C build
 
-
-%clean
-rm -rf %{buildroot}
