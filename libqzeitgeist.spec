@@ -3,7 +3,7 @@ Name:		libqzeitgeist
 Group:		Development/C++
 Summary:	Qt interface for Zeitgeist
 Version:	0.1
-Release:	2
+Release:	3
 URL:		http://gitorious.org/kde-zeitgeist/libqzeitgeist
 License: 	GPL
 #  git clone http://gitorious.org/kde-zeitgeist/libqzeitgeist
