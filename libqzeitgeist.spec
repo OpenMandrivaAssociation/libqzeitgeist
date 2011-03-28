@@ -3,7 +3,7 @@ Name:		libqzeitgeist
 Group:		Development/C++
 Summary:	Qt interface for Zeitgeist
 Version:	0.1
-Release:	%mkrel 1
+Release:	2
 URL:		http://gitorious.org/kde-zeitgeist/libqzeitgeist
 License: 	GPL
 #  git clone http://gitorious.org/kde-zeitgeist/libqzeitgeist
@@ -12,6 +12,7 @@ Patch0:         libqzeitgeist-fix-pkgconfig-install.patch
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	cmake
 BuildRequires:	qt4-devel
+BuildRequires:  kde4-macros
 
 %description
 Qt Zeitgeist Library.
