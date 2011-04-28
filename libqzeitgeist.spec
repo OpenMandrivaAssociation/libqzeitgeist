@@ -46,7 +46,7 @@ Provides:	%name-devel = %version-%release
 %description -n %develname
 Development files for Qt Zeitgeist.
 
-%files -n %name-devel
+%files -n %develname
 %defattr(-,root,root)
 %_kde_datadir/qzeitgeist/cmake
 %_kde_includedir/QtZeitgeist
