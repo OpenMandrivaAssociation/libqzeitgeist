@@ -1,65 +1,58 @@
 %define oname qzeitgeist
 %define major 0
-%define libname %mklibname %oname %major
-%define develname %mklibname %oname -d
+%define libname %mklibname %{oname} %{major}
+%define develname %mklibname %{oname} -d
 
 
 Name:		libqzeitgeist
 Group:		Development/C++
 Summary:	Qt interface for Zeitgeist
-Version:	0.7.0
+Version:	0.8.0
 Release:	1
 URL:		http://gitorious.org/kde-zeitgeist/libqzeitgeist
 License: 	GPLv2
-#  git clone http://gitorious.org/kde-zeitgeist/libqzeitgeist
-Source0:	http://gitorious.org/kde-zeitgeist/libqzeitgeist/%{name}.tar.bz2
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Source0:	http://gitorious.org/kde-zeitgeist/libqzeitgeist/%{name}-%{version}.tar.bz2
 BuildRequires:	cmake
 BuildRequires:	qt4-devel
-BuildRequires:  kde4-macros
+BuildRequires:	zeitgeist
 
 %description
 Qt Zeitgeist Library.
 
-
 #-------------------------------------------------------------------------------
-%package -n %libname
+%package -n %{libname}
 Group:          System/Libraries
 Summary:	Qt Zeitgeist library
 
-%description -n %libname
+%description -n %{libname}
 Library for Qt Zeitgeist.
 
-%files -n %libname
-%defattr(-,root,root)
-%{_kde_libdir}/libqzeitgeist.so.%{major}*
-
+%files -n %{libname}
+%{_libdir}/libqzeitgeist.so.%{major}*
 
 #-------------------------------------------------------------------------------
-%package -n %develname
+%package -n %{develname}
 Group:		Development/C++
 Summary:	Qt Zeitgeist developement files
-Requires:	%libname = %version-%release
-Obsoletes:	%name-devel < %version-%release
-Provides:	%name-devel = %version-%release
+Requires:	%{libname} = %{version}-%{release}
+Obsoletes:	%{name}-devel < %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %develname
+%description -n %{develname}
 Development files for Qt Zeitgeist.
 
-%files -n %develname
-%defattr(-,root,root)
-%_kde_datadir/qzeitgeist/cmake
-%_kde_includedir/QtZeitgeist
-%_kde_libdir/libqzeitgeist.so
-%_kde_libdir/pkgconfig/QtZeitgeist.pc
-
+%files -n %{develname}
+%{_datadir}/qzeitgeist/cmake
+%{_includedir}/QtZeitgeist
+%{_libdir}/libqzeitgeist.so
+%{_libdir}/pkgconfig/QtZeitgeist.pc
 
 #-------------------------------------------------------------------------------
 %prep
-%setup -qn %name
+%setup -q
 
 %build
-%cmake_kde4
+%cmake_qt4
 %make
 
 %install
