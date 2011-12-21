@@ -12,6 +12,9 @@ Release:	1
 URL:		http://gitorious.org/kde-zeitgeist/libqzeitgeist
 License: 	GPLv2
 Source0:	http://gitorious.org/kde-zeitgeist/libqzeitgeist/%{name}-%{version}.tar.bz2
+# import fedora patch
+# fix linking (use QT_DECLARATIVE_LIBRARIES), consistently use QT_IMPORTS_DIR
+Patch0:		libqzeitgeist-0.8.0-declarative.patch
 BuildRequires:	cmake
 BuildRequires:	qt4-devel
 BuildRequires:	zeitgeist
@@ -33,7 +36,7 @@ Library for Qt Zeitgeist.
 #-------------------------------------------------------------------------------
 %package -n %{develname}
 Group:		Development/C++
-Summary:	Qt Zeitgeist developement files
+Summary:	Qt Zeitgeist development files
 Requires:	%{libname} = %{version}-%{release}
 Obsoletes:	%{name}-devel < %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
@@ -50,9 +53,10 @@ Development files for Qt Zeitgeist.
 #-------------------------------------------------------------------------------
 %prep
 %setup -q
+%patch0 -p1 -b .declarative
 
 %build
-%cmake_qt4
+%cmake -DQT_IMPORTS_DIR=%{_qt4_importdir}
 %make
 
 %install
