@@ -59,10 +59,10 @@ Provides:	%{name}-devel = %{version}-%{release}
 Development files for Qt Zeitgeist.
 
 %files -n %{develname}
-%{_datadir}/qzeitgeist/cmake
-%{_includedir}/QtZeitgeist
+%{_includedir}/QZeitgeist
 %{_libdir}/libqzeitgeist.so
-%{_libdir}/pkgconfig/QtZeitgeist.pc
+%{_libdir}/cmake/QZeitgeist/QZeitgeist*.cmake
+%{_libdir}/pkgconfig/QZeitgeist.pc
 
 #-------------------------------------------------------------------------------
 %prep
