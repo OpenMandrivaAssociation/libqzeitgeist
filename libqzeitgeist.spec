@@ -1,5 +1,5 @@
 %define oname qzeitgeist
-%define major 0
+%define major 1
 %define libname %mklibname %{oname} %{major}
 %define develname %mklibname %{oname} -d
 
@@ -15,8 +15,9 @@ Source0:	http://gitorious.org/kde-zeitgeist/libqzeitgeist/%{name}-%{version}.tar
 # import fedora patch
 # fix linking (use QT_DECLARATIVE_LIBRARIES), consistently use QT_IMPORTS_DIR
 Patch0:		libqzeitgeist-0.8.0-declarative.patch
+BuildRequires:	automoc4
 BuildRequires:	cmake
-BuildRequires:	qt4-devel
+BuildRequires:	pkgconfig(QtDBus) pkgconfig(QtDeclarative) pkgconfig(QtXml)
 BuildRequires:	zeitgeist
 
 %description
@@ -31,7 +32,20 @@ Summary:	Qt Zeitgeist library
 Library for Qt Zeitgeist.
 
 %files -n %{libname}
-%{_libdir}/libqzeitgeist.so.%{major}*
+%{_libdir}/libqzeitgeist.so.1
+%{_libdir}/libqzeitgeist.so.%{version}
+
+#--------------------------------------------------------------------
+%package -n libqzeitgeist-plugin
+Group:		System/Libraries
+Summary:	Qt Zeitgeist Plugin
+
+%description -n libqzeitgeist-plugin
+Qt Zeitgeist plugin.
+
+%files -n libqzeitgeist-plugin
+%{_qt4_importdir}/org/gnome/zeitgeist/libQZeitgeistDeclarativePlugin.so
+%{_qt4_importdir}/org/gnome/zeitgeist/qmldir
 
 #-------------------------------------------------------------------------------
 %package -n %{develname}
