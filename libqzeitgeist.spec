@@ -1,3 +1,7 @@
+# Ze: use this untill qt4 macros arent fixed
+%define _qt4_datadir %{_prefix}/lib/qt4
+%define _qt4_importdir %{_qt4_datadir}/imports
+
 %define oname qzeitgeist
 %define major 1
 %define libname %mklibname %{oname} %{major}
