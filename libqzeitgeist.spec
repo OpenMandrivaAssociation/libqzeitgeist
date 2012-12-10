@@ -81,3 +81,41 @@ Development files for Qt Zeitgeist.
 rm -rf %{buildroot}
 %makeinstall_std -C build
 
+
+
+%changelog
+* Wed Dec 21 2011 Zé <ze@mandriva.org> 0.8.0-1
++ Revision: 744052
+- use this untill qt4 macros arent fixed
+- fix devel file list
+- forgot to list plugin files
+- fix major and list files in lib package
+- automoc4 is needed
+- use pkg buildrequires
+- declarative patch
+- workaround for QT_IMPORTS_DIR (need to investigate why fails in FindQt4.cmake)
+- clean defatr and BR
+- kde macros are not to be used
+- 0.8.0
+
+* Thu Apr 28 2011 Zé <ze@mandriva.org> 0.7.0-1
++ Revision: 659767
+- version 0.7.0
+- drop patch0 (fixed upstream)
+- fix package naming and add renaming
+- fix URL
+
+* Mon Mar 28 2011 Nicolas Lécureuil <nlecureuil@mandriva.com> 0.1-3
++ Revision: 648684
+- Fix install
+- Add missing buildrequire
+- Install pkgconfig in %%_libdir ( P0 )
+- Cosmetics
+- Remove changelog, this does not belong to spec file
+
+  + Jani Välimaa <wally@mandriva.org>
+    - Created package structure for libzeitgeist.
+
+  + Zé <ze@mandriva.org>
+    - first package
+
