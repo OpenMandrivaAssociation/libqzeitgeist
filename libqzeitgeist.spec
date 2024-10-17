@@ -13,7 +13,7 @@ Group:		Development/C++
 Summary:	Qt interface for Zeitgeist
 Version:	0.8.0
 Release:	2
-URL:		http://gitorious.org/kde-zeitgeist/libqzeitgeist
+URL:		https://gitorious.org/kde-zeitgeist/libqzeitgeist
 License: 	GPLv2
 Source0:	http://gitorious.org/kde-zeitgeist/libqzeitgeist/%{name}-%{version}.tar.bz2
 # import fedora patch
